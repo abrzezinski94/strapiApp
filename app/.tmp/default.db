@@ -1,0 +1,181 @@
+{
+  "data": {
+    "email": [],
+    "upload": [],
+    "user": [],
+    "role_users__user_roles": []
+  },
+  "schema": {
+    "email": {
+      "from": {
+        "type": "string"
+      },
+      "to": {
+        "type": "string"
+      },
+      "subject": {
+        "type": "string"
+      },
+      "html": {
+        "type": "string"
+      },
+      "text": {
+        "type": "string"
+      },
+      "sent": {
+        "type": "boolean"
+      },
+      "lang": {
+        "type": "string"
+      },
+      "template": {
+        "type": "string"
+      },
+      "id_ref": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "upload": {
+      "readable": {
+        "type": "boolean"
+      },
+      "domain": {
+        "type": "boolean"
+      },
+      "truncated": {
+        "type": "boolean"
+      },
+      "fieldname": {
+        "type": "string"
+      },
+      "filename": {
+        "type": "string"
+      },
+      "encoding": {
+        "type": "string"
+      },
+      "transferEncoding": {
+        "type": "string"
+      },
+      "mime": {
+        "type": "string"
+      },
+      "mimeType": {
+        "type": "string"
+      },
+      "originalFilenameFormatted": {
+        "type": "string"
+      },
+      "originalFilename": {
+        "type": "string"
+      },
+      "lang": {
+        "type": "string"
+      },
+      "template": {
+        "type": "string"
+      },
+      "id_ref": {
+        "type": "string"
+      },
+      "createdBy": {
+        "type": "integer",
+        "model": "user",
+        "foreignKey": true,
+        "alias": "createdBy"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "user": {
+      "username": {
+        "type": "string",
+        "unique": true
+      },
+      "email": {
+        "type": "string",
+        "unique": true
+      },
+      "lang": {
+        "type": "string"
+      },
+      "template": {
+        "type": "string"
+      },
+      "id_ref": {
+        "type": "string"
+      },
+      "provider": {
+        "type": "string"
+      },
+      "password": {
+        "type": "string"
+      },
+      "resetPasswordToken": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "role_users__user_roles": {
+      "id": {
+        "primaryKey": true,
+        "unique": true,
+        "autoIncrement": true,
+        "type": "integer"
+      },
+      "role_users": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "role",
+        "on": "id",
+        "via": "user_roles"
+      },
+      "user_roles": {
+        "type": "integer",
+        "foreignKey": true,
+        "references": "user",
+        "on": "id",
+        "via": "role_users"
+      }
+    }
+  },
+  "counters": {
+    "email": {},
+    "upload": {},
+    "user": {},
+    "role_users__user_roles": {}
+  }
+}
